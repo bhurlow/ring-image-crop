@@ -2,6 +2,17 @@
 
 ring middleware that auto crops and serves urls according the `width` and `height` query params
 
+### Usage
+
+in your project.clj:
+
+```clj
+[ring-image-crop "0.0.1"]
+```
+
+Then install the handler.
+(note that the params and keyword-params are *required*)
+
 ```clj
 (def app
   (-> handler
