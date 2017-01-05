@@ -1,14 +1,22 @@
 # ring-image-crop
 
-A Clojure library designed to ... well, that part is up to you.
+ring middleware that auto crops and serves urls according the `width` and `height` query params
 
-## Usage
+```
+(def app
+  (-> handler
+      (wrap-file "public")
+      (wrap-image-crop "public")
+      (wrap-keyword-params)
+      (wrap-params)))
+```
 
-FIXME
+```
+;; first requests would crop if crop not already made
+(get "/kitten.png?width=100&height=10")
 
-## License
+;; subsequent reqs return cropped version
+(get "/kitten.png?width=100&height=10")
+```
 
-Copyright © 2017 FIXME
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
