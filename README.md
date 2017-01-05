@@ -2,7 +2,7 @@
 
 ring middleware that auto crops and serves urls according the `width` and `height` query params
 
-```
+```clj
 (def app
   (-> handler
       (wrap-file "public")
@@ -11,7 +11,7 @@ ring middleware that auto crops and serves urls according the `width` and `heigh
       (wrap-params)))
 ```
 
-```
+```clj
 ;; first requests would crop if crop not already made
 (get "/kitten.png?width=100&height=10")
 
